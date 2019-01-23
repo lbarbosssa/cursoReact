@@ -1,5 +1,5 @@
 const Rebase = require('re-base')
-const firebase = riquere('firebase')
+const firebase = require('firebase')
 
 const FirebaseConfig = {
     apiKey: "AIzaSyDarLlgJ3g3Wy2l-O3O3jY0q0DOPDBrcp8",
@@ -10,7 +10,7 @@ const FirebaseConfig = {
     messagingSenderId: "229350578242"
   }
   
-  const app = firebase.initializeApp(config)
+  const app = firebase.initializeApp(FirebaseConfig)
   const config = Rebase.createClass(app.database())
 
   export default config
