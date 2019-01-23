@@ -15,7 +15,7 @@ class App extends Component {
           <Cabecalho />
           
           <Route path='/' exact component={Inicio} />
-          <Route path='/Servicos' component={Servicos} />
+          <Route path='/servicos' component={Servicos} />
       
           <Rodape />
         </div>
