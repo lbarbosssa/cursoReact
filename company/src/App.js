@@ -6,6 +6,7 @@ import Rodape from './componentes/Rodape'
 import Cabecalho from './componentes/Cabecalho'
 import Inicio from './componentes/Inicio'
 import Servicos from './componentes/Servicos'
+import Portifolio from './componentes/Portifolio'
 
 class App extends Component {
   render() {
@@ -16,7 +17,9 @@ class App extends Component {
           
           <Route path='/' exact component={Inicio} />
           <Route path='/servicos' component={Servicos} />
-      
+          <Route path='/portifolio' component={Portifolio} />
+          
+          
           <Rodape />
         </div>
       </BrowserRouter>
