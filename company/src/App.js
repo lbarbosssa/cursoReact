@@ -10,6 +10,9 @@ import Portifolio from './componentes/Portifolio'
 import Precos from './componentes/Precos'
 import Contatos from './componentes/Contatos'
 
+//Area Administtrativa
+import Admin from './admin/Admin'
+
 class App extends Component {
   render() {
     return (
@@ -21,7 +24,9 @@ class App extends Component {
           <Route path='/servicos' component={Servicos} />
           <Route path='/portifolio' component={Portifolio} />
           <Route path='/precos' component={Precos}/>    
-          <Route path='/contatos' component={Contatos}/>     
+          <Route path='/contatos' component={Contatos}/>
+
+          <Route path='/admin' component={Admin} />     
           
           <Rodape />
         </div>
