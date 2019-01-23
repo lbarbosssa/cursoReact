@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import config from './../firebase-config'
+import ItemPortifolio from "./ItemPortifolio";
 
 class Portifolio extends Component {
     constructor(props) {
@@ -8,11 +9,18 @@ class Portifolio extends Component {
 
         this.state = {
             portifolio: {
-                titulo: 'Paris',
-                descricao: 'Cidade  Luz'
+
             }
         }
-    }   
+
+        config.syncState('portifolio', {
+            context: this,
+            state: 'portifolio',
+            asArray: false
+        }
+
+        )
+    }
 
     render() {
         return (
@@ -22,13 +30,12 @@ class Portifolio extends Component {
                     <h2>Portfolio</h2><br />
                     <h4>What we have created</h4>
                     <div className='row text-center'>
-                        <div className='col-sm-4'>
-                            <div className='thumbnail'>
-                                <img src='paris.jpg' alt='Paris' width='400' height='300' />
-                                <p><strong>{this.state.portifolio.titulo}</strong></p>
-                                <p>{this.state.portifolio.descricao}</p>
-                            </div>
-                        </div>
+                        {
+                            Object.keys(this.state.portifolio)
+                            .map(key => {
+                                return <ItemPortifolio key={key} conteudo={this.state.portifolio[key]} />
+                            })
+                        }
 
                     </div><br />
 
