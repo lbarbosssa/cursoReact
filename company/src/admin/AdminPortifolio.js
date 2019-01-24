@@ -14,6 +14,17 @@ class AdminPortifolio extends Component {
         console.log(this.titulo.value)
         console.log(this.descricao.value)
         console.log(this.imagem.value)
+
+        const arquivo = this.imagem.files[0]
+        const {name, size, type} = arquivo
+        console.log(name, size, type)
+
+        const ref = storage.ref(name)
+        ref.put(arquivo)
+            .then(img => {
+                console.log(img.metadata)
+            })
+    
     }
 
     render() {
