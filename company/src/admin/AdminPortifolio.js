@@ -22,7 +22,20 @@ class AdminPortifolio extends Component {
         const ref = storage.ref(name)
         ref.put(arquivo)
             .then(img => {
-                console.log(img.metadata)
+                //console.log(img.metadata)
+                img.ref.getDownloadURL()
+                    .then(downloadURL => {
+                        //console.log(downloadURL)
+                        const novoPortifolio = {
+                            titulo: this.titulo.value,
+                            descricao: this.descricao.value,
+                            imagem: downloadURL
+                        }
+                        console.log(novoPortifolio)
+                        config.push('portifolio', {
+                            data: novoPortifolio
+                        })   
+                    })
             })
     
     }
