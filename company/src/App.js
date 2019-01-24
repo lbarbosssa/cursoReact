@@ -12,6 +12,7 @@ import Contatos from './componentes/Contatos'
 
 //Area Administtrativa
 import Admin from './admin/Admin'
+import Login from './admin/Login'
 
 class App extends Component {
   render() {
@@ -26,7 +27,8 @@ class App extends Component {
           <Route path='/precos' component={Precos}/>    
           <Route path='/contatos' component={Contatos}/>
 
-          <Route path='/admin' component={Admin} />     
+          <Route path='/admin' component={Admin} /> 
+          <Route path='/login' component={Login} />
           
           <Rodape />
         </div>
