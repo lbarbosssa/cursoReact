@@ -140,9 +140,7 @@ body {
     -webkit-animation-duration: 1s;
     visibility: visible;
   }
-  .loginForm{
-    padding: 120px
-  }
+  
   @keyframes slide {
     0% {
       opacity: 0;

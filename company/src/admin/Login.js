@@ -1,30 +1,39 @@
 import React, { Component } from 'react'
 
 class Login extends Component {
-    constructor(props) {
+    constructor(props){
         super(props)
+
+        this.email = null
+        this.senha = null
+
+        this.autenticaUsuario = this.autenticaUsuario.bind(this)
+        
     }
 
-    render() {
-        return (
-            <div className='loginForm'>
+    autenticaUsuario(){
+        console.log(this.email.value, this.senha.value)
+    }
+
+    render(){
+        return(
+            <div className='container'>
                 <h1>Login</h1>
-                <form>
+                
                     <div className='form-group'>
-                        <label htmlFor='exampleInputEmail1'>Email address</label>
-                        <input type='email' className='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email' />
+                        <label forhtml='exampleInputEmail1'>Email address</label>
+                        <input type='email' name="email" ref={ref => this.email = ref} className='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='nome@email.com' />
                         <small id='emailHelp' className='form-text text-muted'>We'll never share your email with anyone else.</small>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='exampleInputPassword1'>Password</label>
-                        <input type='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
+                        <label forhtml='exampleInputPassword1'>Password</label>
+                        <input type='password' name="senha" ref={ref => this.senha = ref} className='form-control' id='exampleInputPassword1' placeholder='Senha' />
                     </div>
                     
-                    <button type='submit' className='btn btn-primary'>Submit</button>
-                </form>
+                    <button type='button' onClick={this.autenticaUsuario} className='btn btn-primary'>Submit</button>
+                
 
             </div>
-
         )
     }
 }
