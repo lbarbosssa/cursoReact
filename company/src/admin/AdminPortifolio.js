@@ -1,13 +1,35 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+
+import config, { storage } from './../firebase-config'
 
 class AdminPortifolio extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
-    render(){
+    render() {
         return (
-            <h2>Portifolio - Area Administtrativa</h2>
+            <div style={{padding: '120px'}}>
+                <h2>Portifolio - Area Administtrativa</h2>
+                <form>
+                    <div className='form-group'>
+                        <label for='titulo'>Titulo</label>
+                        <input type='text' className='form-control' id='titulo' placeholder='Titulo' />
+
+                    </div>
+                    <div className='form-group'>
+                        <label for='descricao'>Descrição</label>
+                        <textarea className='form-control' id='descricao' rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagem">Imagem</label>
+                        <input type="file" class="form-control-file" id="imagem" />
+                    </div>
+
+                    <button type='submit' className='btn btn-primary'>Salvar</button>
+                </form>
+
+            </div>
         )
     }
 }
