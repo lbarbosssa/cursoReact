@@ -9,16 +9,14 @@ class AdminPortifolio extends Component {
         this.gravaPortifolio = this.gravaPortifolio.bind(this)
     }
 
-    gravaPortifolio (event){
+    gravaPortifolio(event) {
         event.preventDefault()
-        
+
         const arquivo = this.imagem.files[0]
-        const {name, size, type} = arquivo
-    
+        const { name, size, type } = arquivo
         const ref = storage.ref(name)
         ref.put(arquivo)
             .then(img => {
-                
                 img.ref.getDownloadURL()
                     .then(downloadURL => {
                         const novoPortifolio = {
@@ -28,15 +26,15 @@ class AdminPortifolio extends Component {
                         }
                         config.push('portifolio', {
                             data: novoPortifolio
-                        })   
+                        })
                     })
             })
-    
+
     }
 
     render() {
         return (
-            <div style={{padding: '120px'}}>
+            <div style={{ padding: '120px' }}>
                 <h2>Portifolio - Area Administtrativa</h2>
                 <form onSubmit={this.gravaPortifolio}>
                     <div className='form-group'>
@@ -50,7 +48,7 @@ class AdminPortifolio extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="imagem">Imagem</label>
-                        <input type="file" className="form-control-file" id="imagem" ref={(ref) => this.imagem = ref}/>
+                        <input type="file" className="form-control-file" id="imagem" ref={(ref) => this.imagem = ref} />
                     </div>
 
                     <button type='submit' className='btn btn-primary'>Salvar</button>
