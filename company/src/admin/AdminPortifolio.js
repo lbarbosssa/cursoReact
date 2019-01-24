@@ -11,27 +11,21 @@ class AdminPortifolio extends Component {
 
     gravaPortifolio (event){
         event.preventDefault()
-        console.log(this.titulo.value)
-        console.log(this.descricao.value)
-        console.log(this.imagem.value)
-
+        
         const arquivo = this.imagem.files[0]
         const {name, size, type} = arquivo
-        console.log(name, size, type)
-
+    
         const ref = storage.ref(name)
         ref.put(arquivo)
             .then(img => {
-                //console.log(img.metadata)
+                
                 img.ref.getDownloadURL()
                     .then(downloadURL => {
-                        //console.log(downloadURL)
                         const novoPortifolio = {
                             titulo: this.titulo.value,
                             descricao: this.descricao.value,
                             imagem: downloadURL
                         }
-                        console.log(novoPortifolio)
                         config.push('portifolio', {
                             data: novoPortifolio
                         })   
